@@ -131,6 +131,8 @@ public class MyModel {
             return false;
         }
 
+
+
         // Check for incorrect assignment operator
         if (code.matches("\\b\\w+\\s*:=\\s*\\d+;")) {
             System.out.println("Syntax Error: Incorrect assignment operator.");
@@ -139,6 +141,9 @@ public class MyModel {
         // No syntax errors found
         return true;
     }
+
+
+
 
     //endregion
 
@@ -208,17 +213,28 @@ public class MyModel {
         }
     }
 
+    public boolean isValidDeclaration(String code) {
+        // Check for a valid variable declaration
+        if (code.matches("\\b(?:int|float|double|char|boolean)\\s+([a-zA-Z_][a-zA-Z0-9_]*\\s*(?:,\\s*[a-zA-Z_][a-zA-Z0-9_]*)*)?\\s*;")) {
+            System.out.println("Valid Declaration: " + code);
+            return true;
+        } else {
+            System.out.println("Invalid Declaration: " + code);
+            return false;
+        }
+    }
+
     //endregion
     public ArrayList<String> GetLines(File javaFile) {
         try {
             try (BufferedReader br = new BufferedReader(new FileReader(javaFile))) {
                 String line;
                 while ((line = br.readLine()) != null) {
-                    System.out.println("scanned line:" + line);
+                    System.out.println("scanned line: " + line);
                     if (scanLine(line)) {
-                        // If the line meets the criteria, add it to the list
-                        matchedLines.add(line);
-                        System.out.println("added line :" + line + "to matchedlines");
+                        // If the line meets the criteria, add it to the list after removing leading spaces
+                        matchedLines.add(line.trim());
+                        System.out.println("added line: " + line + " to matchedlines");
                     }
                 }
             }
