@@ -2,12 +2,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class MyView extends JPanel {
+public class MyViewPanel extends JPanel {
+    private static final int NAVIGATION_PANEL_WIDTH_FACTOR = 3;
     private MyModel model;
     private int width;
     private int height;
 
-    public MyView(MyModel model, int width, int height) {
+    public MyViewPanel(MyModel model, int width, int height) {
         this.model = model;
         this.width = width;
         this.height = height;
@@ -15,7 +16,7 @@ public class MyView extends JPanel {
 
 
         //Create a navigation panel that takes up 1/3 of the width of the MyView panel
-        JPanel navigationPanel = new NavigationPanel(this.width/3,this.height);
+        JPanel navigationPanel = new NavigationPanel(this.width/NAVIGATION_PANEL_WIDTH_FACTOR,this.height);
 
         // Create a main panel that takes up 2/3 of the width of the MyView panel
         MainPanel mainPanel = new MainPanel(this.width, this.height);
@@ -43,8 +44,22 @@ public class MyView extends JPanel {
          return panelList;
 
     }
+
     public JLabel getTitle(){
         MainPanel mainPanel = (MainPanel) getComponent(1);
         return mainPanel.titleLabel;
     }
+    public void SetFileContent(String content){
+        MainPanel mainPanel = (MainPanel) getComponent(1);
+        mainPanel.setFileContent(content);
+    }
+    public void SetFileName(String fileName){
+        MainPanel mainPanel = (MainPanel) getComponent(1);
+        mainPanel.setFileName(fileName);
+    }
+    public void SetTitleMessage(String message, Color color){
+        MainPanel mainPanel = (MainPanel) getComponent(1);
+        mainPanel.setTitleMessage(message,color);
+    }
+
 }
