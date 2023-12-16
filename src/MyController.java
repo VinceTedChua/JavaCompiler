@@ -132,6 +132,7 @@ public class MyController {
 
         view.SetFileContent("");
         view.SetTitleMessage("Open New File",Color.WHITE);
+        view.SetFileName(" ");
     }
 
     public static void removeAllComponents(ArrayList<JPanel> panels) {
