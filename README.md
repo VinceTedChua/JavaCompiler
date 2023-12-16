@@ -8,7 +8,7 @@ Languages such as Java, C++ and beynd provides a flexible overview of how a comp
 
 # Here is how it is conveyed through phases of Compiler:
 
-<img width="887" alt="Phases" src="https://github.com/VinceTedChua/JavaCompiler/assets/142372312/e51de7d8-341c-43cc-a201-9987eace365c">
+<img width="887" alt="Phases" src="https://github.com/VinceTedChua/JavaCompiler-1/assets/142372312/fc417490-94f7-402a-82eb-058e0b5918b8">
 
 My Group and I are here to present you the main gist of the logic to better understand it: 
 
